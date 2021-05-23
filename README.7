@@ -1,0 +1,114 @@
+.\" To view this file, use `man -l README.7`
+.\" To view in other formats, look into mandoc(1) (recommended) or groff(1)
+.
+.\" Copyright (c) 2021 nytpu <alex@nytpu.com>
+.\" SPDX-License-Identifier: GPL-3.0-only
+.\" For more license details, see LICENSE or <https://www.gnu.org/licenses/gpl-3.0.html>.
+.Dd May 22, 2021
+.Dt README 7
+.Os
+.
+.Sh NAME
+.Nm ed
+.Nd line-oriented text editor
+.
+.Sh DESCRIPTION
+.Xr ed 1
+is the standard UNIX text editor.
+While that is used a joke,
+.Nm
+is legitimately a useful editor in the modern day, particularly when:
+.
+.Bl -enum
+.It
+Making a quick edit in a file you're familiar with
+.It
+Working over slow connections (low-baud serial, SSH on a shaky hotspot, etc.)
+.It
+Programmatically editing files using the same commands you use to edit.
+Just make one edit manually, put those commands in a script, and run it on the
+rest of the files without having to convert the actions into a different
+scripting language like awk
+.El
+.
+.Pp
+This is a reimplementation that's more compliant with other
+.Nm
+implementations and the POSIX standard than
+.Lk https://www.gnu.org/software/ed/ GNU's implementation of ed ,
+while still having some of GNU
+.Nm
+.Ap s convenience and extensions that are missing from those other
+.Nm
+implementations.
+It'll also be implemented more simply than GNU
+.Nm ,
+and should have more clear and concise code (hopefully).
+.
+.Sh INSTALLING
+.Ss REQUIREMENTS
+.Bl -bullet
+.It
+Pure POSIX
+.Xr make 1 .
+Most
+.Xr make 1
+.Ap s should support the POSIX standard.
+.It
+C compiler supporting C11.
+.El
+.
+.Ss COMPILING
+.Bd -literal -offset indent
+\&./configure
+make
+sudo make install
+.Ed
+.
+.Sh CONTRIBUTING
+The upstream URL of this project is
+.Aq Lk https://git.nytpu.com/ed .
+Send suggestions, bugs, and other contributions to
+.Aq Mt alex@nytpu.com .
+For help sending a patch through email, see
+.Aq Lk https://git-send-email.io .
+.
+.Sh COPYRIGHT
+.Nm
+is Copyright (C) 2021
+.An nytpu
+.Aq Mt alex@nytpu.com .
+.
+.Pp
+.Nm
+is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+more details.
+
+You can find a copy of the GNU General Public license in
+.Pa LICENSE
+or at
+.Aq Lk https://www.gnu.org/licenses/gpl-3.0-standalone.html .
+.
+.Pp
+The build system
+.Po
+.Pa Makefile
+and
+.Pa configure
+.Pc
+for
+.Nm
+is licensed under the terms of the MIT license.
+For more information, see
+.Pa LICENSE_MIT
+or
+.Aq Lk https://opensource.org/licenses/MIT .
+No other part of
+.Nm
+is licensed under the MIT license.
